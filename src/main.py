@@ -1,4 +1,4 @@
-from src.task import Category, Product
+from src.class_creator import Category, Product
 
 if __name__ == "__main__":
     product1 = Product("Samsung Galaxy S23 Ultra",
