@@ -1,7 +1,7 @@
 import json
 import os
 
-from src.task import Category, Product
+from src.class_creator import Category, Product
 
 
 def read_json(path: str):          # type: ignore[no-untyped-def]
