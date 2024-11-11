@@ -1,6 +1,8 @@
 HomeWork-14.1
 
 Задание 1
+
+
 Создаём классы Product и Category в модуле: class_creator.py. Для класса Product определяем следующие свойства: название (name),описание (description),цена (price),количество в наличии (quantity). Для класса Category определяем следующие свойства:название (name),описание (description),список товаров категории (products).
 Образец:
 
@@ -10,6 +12,8 @@ HomeWork-14.1
     products: list
     category_count = 0
     product_count = 0"""
+
+
 
 """class Product:
     name: str
@@ -38,10 +42,12 @@ HomeWork-14.1
         self.price = price
         self.quantity = quantity
 Задание 3
+
 В пакете с тестами созданы тесты на проверку модулей class_creator.py, utils.py которые проверяют:
 
 корректность инициализации объектов класса Category , корректность инициализации объектов класса Product , подсчет количества продуктов,
 
 * Дополнительное задание
+* 
 Реализовываем приём данных по категориями и товарам из файла JSON. Для этого создадим специальную функцию """def read_json(path: str):  """, которая будет читать файл и создавать объекты классов """def create_objects_from_json(data):  """
 * 
