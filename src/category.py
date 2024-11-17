@@ -19,7 +19,7 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
 
-    def __str__(self):
+    def __str__(self):                 # type: ignore[no-untyped-def]
         total_quantity = 0
         for product in self.__products:
             total_quantity += product.quantity

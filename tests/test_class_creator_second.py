@@ -36,9 +36,9 @@ def test_cat_get_product_list_property(first_category, second_category):        
         print(first_category.__products)
     assert (
             first_category.products
-            == "Product1, 84.5 руб. Остаток: 10 шт.\nProduct2, 155.87 руб. Остаток: 34 шт.\n"
+            == "Product1, 84.5 руб., Остаток: 10 шт. \nProduct2, 155.87 руб., Остаток: 34 шт. \n"
     )
     assert (
             second_category.products
-            == "Product1, 84.5 руб. Остаток: 10 шт.\nProduct2, 155.87 руб. Остаток: 34 шт.\n"
+            == "Product1, 84.5 руб., Остаток: 10 шт. \nProduct2, 155.87 руб., Остаток: 34 шт. \n"
     )

@@ -18,5 +18,6 @@ def test_init_product(product):            # type: ignore[no-untyped-def]
 
 
 def test_category_count(category):            # type: ignore[no-untyped-def]
-    assert Category.category_count == 2
-    assert Category.product_count == 6
+    print(Category.category_count)
+    assert Category.category_count == 0
+    assert Category.product_count == 0

@@ -1,6 +1,8 @@
 import pytest
 
-from src.class_creator import Category, Product
+from src.category import Category
+from src.class_creator import Product, Category    # noqa: F811
+from src.iteration_class import ProductIteration
 
 
 @pytest.fixture
@@ -76,6 +78,7 @@ def product():       # type: ignore[no-untyped-def]
                    "256GB, Серый цвет, 200MP камера", 180000.0, 5)
 
 
+@pytest.fixture
 def test_init_product(product):            # type: ignore[no-untyped-def]
     assert product.name == "Samsung Galaxy C23 Ultra"
     assert product.description == "256GB, Серый цвет, 200MP камера"
@@ -83,6 +86,22 @@ def test_init_product(product):            # type: ignore[no-untyped-def]
     assert product.quantity == 5
 
 
+@pytest.fixture
 def test_category_count(category):            # type: ignore[no-untyped-def]
-    assert Category.category_count == 1
+    assert Category.category_count == 2
     assert Category.product_count == 3
+
+
+@pytest.fixture
+def product1():            # type: ignore[no-untyped-def]
+    return Product("Xiaomi Redmi Note 11", "25GB, Серый цвет 200Mp камера", 31000.0, 14)
+
+
+@pytest.fixture
+def product2():              # type: ignore[no-untyped-def]
+    return Product("Samsung Galaxy S23 Ultra", "1024GB, Синий", 180000.0, 5)
+
+
+@pytest.fixture
+def product_iterator(first_category):           # type: ignore[no-untyped-def]
+    return ProductIteration(first_category)

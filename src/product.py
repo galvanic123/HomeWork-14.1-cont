@@ -13,10 +13,10 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-    def __str__(self):
+    def __str__(self):                       # type: ignore[no-untyped-def]
         return f'{self.name}, {self.__price} руб., Остаток: {self.quantity} шт. '
 
-    def __add__(self, other):
+    def __add__(self, other):              # type: ignore[no-untyped-def]
         if type(self) == type(other):
             return self.__price * self.quantity + other.__price * other.quantity
         else:
