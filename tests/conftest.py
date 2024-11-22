@@ -1,10 +1,10 @@
 import pytest
 
 from src.category import Category
-from src.product import Product
 from src.iteration_class import ProductIteration
-from src.smartphone import Smartphone
 from src.lawngrass import LawnGrass
+from src.product import Product
+from src.smartphone import Smartphone
 
 
 @pytest.fixture
@@ -105,12 +105,7 @@ def product2():              # type: ignore[no-untyped-def]
 
 
 @pytest.fixture
-def product_iterator(first_category):           # type: ignore[no-untyped-def]
-    return ProductIteration(first_category)
-
-
-@pytest.fixture
-def smartphone():
+def smartphone():            # type: ignore[no-untyped-def]
     """Данные для теста Smartphone"""
     return Smartphone.new_product({
         "name": "Samsung Galaxy C23 Ultra",
@@ -125,7 +120,7 @@ def smartphone():
 
 
 @pytest.fixture
-def lawngrass():
+def lawngrass():              # type: ignore[no-untyped-def]
     """Данные для теста lawngrass"""
     return LawnGrass.new_product({
         "name": "Lawngrass",

@@ -46,5 +46,5 @@ class Product:
                 if answer.lower() == 'y':
                     self.price = value
                     break
-                elif answer.lower() =='n':
+                elif answer.lower() == 'n':
                     break

@@ -1,4 +1,4 @@
-def test_lawngrass_init(lawngrass):
+def test_lawngrass_init(lawngrass):                 # type: ignore[no-untyped-def]
     assert lawngrass.name == "Lawngrass"
     assert lawngrass.description == "Lawngrass small size"
     assert lawngrass.price == 1500.0
