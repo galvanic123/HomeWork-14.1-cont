@@ -1,8 +1,6 @@
 from src.category import Category
-from src.product import Product
-from src.class_creator import Category, Product
-from src.iteration_class import ProductIteration
-
+from src.smartphone import Smartphone
+from src.lawngrass import LawnGrass
 
 
 if __name__ == '__main__':

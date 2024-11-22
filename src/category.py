@@ -20,6 +20,7 @@ class Category:
         Category.product_count += len(products) if products else 0
 
     def __str__(self):                 # type: ignore[no-untyped-def]
+        """Метод, отображающий строку в заданном формате"""
         total_quantity = 0
         for product in self.__products:
             total_quantity += product.quantity
@@ -29,12 +30,17 @@ class Category:
     def product(self):              # type: ignore[no-untyped-def]
         return self.__products
 
-    def add_product(self, product: Product):                # type: ignore[no-untyped-def]
-        self.__products.append(product)
-        Category.product_count += 1
+    def add_product(self, product: dict):                # type: ignore[no-untyped-def]
+        """Метод добавления нового продукта в список"""
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
     @property
     def products(self):              # type: ignore[no-untyped-def]
+        """Отображение продукта в заданном формате"""
         product_list = ""
         for product in self.__products:
             product_list += f"{str(product)}\n"
