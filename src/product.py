@@ -25,11 +25,8 @@ class Product:
     @classmethod
     def new_product(cls, product_data: dict):             # type: ignore[no-untyped-def]
         """Возвращает созданный объект класса Product из параметров товара в словаре"""
-        name = product_data["name"]
-        description = product_data["description"]
-        price = product_data["price"]
-        quantity = product_data["quantity"]
-        return cls(name, description, price, quantity)
+
+        return cls(**product_data)
 
     @property
     def price(self):             # type: ignore[no-untyped-def]
