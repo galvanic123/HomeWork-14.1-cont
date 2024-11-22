@@ -1,4 +1,5 @@
-from src.class_creator import Category, Product
+from src.category import Category
+from src.product import Product
 
 if __name__ == "__main__":
     product1 = Product("Samsung Galaxy S23 Ultra",

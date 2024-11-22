@@ -1,8 +1,10 @@
 import pytest
 
 from src.category import Category
-from src.class_creator import Product, Category    # noqa: F811
 from src.iteration_class import ProductIteration
+from src.lawngrass import LawnGrass
+from src.product import Product
+from src.smartphone import Smartphone
 
 
 @pytest.fixture
@@ -103,5 +105,29 @@ def product2():              # type: ignore[no-untyped-def]
 
 
 @pytest.fixture
-def product_iterator(first_category):           # type: ignore[no-untyped-def]
-    return ProductIteration(first_category)
+def smartphone():            # type: ignore[no-untyped-def]
+    """Данные для теста Smartphone"""
+    return Smartphone.new_product({
+        "name": "Samsung Galaxy C23 Ultra",
+        "description": "256GB, Серый цвет, 200MP камера",
+        "price": 180000.0,
+        "quantity": 5,
+        "efficiency": "3.4 Ггц",
+        "model": "Galaxy C23 Ultra",
+        "memory": "256Gb",
+        "color": "Серый"
+    })
+
+
+@pytest.fixture
+def lawngrass():              # type: ignore[no-untyped-def]
+    """Данные для теста lawngrass"""
+    return LawnGrass.new_product({
+        "name": "Lawngrass",
+        "description": "Lawngrass small size",
+        "price": 1500.0,
+        "quantity": 5,
+        "country": "Russia",
+        "germination_period": "2 month",
+        "color": "Зелёный"
+    })
