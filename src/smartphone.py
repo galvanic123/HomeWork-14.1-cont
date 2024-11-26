@@ -2,7 +2,7 @@ from src.product import Product
 
 
 class Smartphone(Product):
-    def __init__(self, name, description, price, quantity,
+    def __init__(self, name, description, price, quantity,        # type: ignore[no-untyped-def]
                  efficiency, model, memory, color):      # type: ignore[no-untyped-def]
         super().__init__(name, description, price, quantity)
         self.efficiency = efficiency

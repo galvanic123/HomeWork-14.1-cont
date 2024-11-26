@@ -10,7 +10,7 @@ class Product(BaseProduct, PrintMixin):
     price: float
     quantity: int
 
-    def __init__(self, name, description, price, quantity):             # type: ignore[no-untyped-def]
+    def __init__(self, name, description, price, quantity):              # type: ignore[no-untyped-def]
         """Передаём одноимённые переменные для дальнейшего использования"""
 
         self.name = name

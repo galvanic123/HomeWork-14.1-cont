@@ -1,7 +1,6 @@
 import pytest
 
 from src.category import Category
-from src.iteration_class import ProductIteration
 from src.lawngrass import LawnGrass
 from src.product import Product
 from src.smartphone import Smartphone
