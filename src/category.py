@@ -1,5 +1,5 @@
 from src.product import Product
-
+from src.exceptions import ZeroProduct
 
 class Category:
     """Класс Категория Товара - принимает на вход значение и ведёт подсчёт количества
@@ -42,8 +42,17 @@ class Category:
     def add_product(self, product: dict):                # type: ignore[no-untyped-def]
         """Метод добавления нового продукта в список"""
         if isinstance(product, Product):
-            self.__products.append(product)
-            Category.product_count += 1
+            try:
+                if product.quantity == 0:
+                    raise ZeroProduct("Нельзя добавлять товар с нулевым количеством")
+            except ZeroProduct as e:
+                print(str(e))
+            else:
+                self.__products.append(product)
+                Category.product_count += 1
+                print("Товар добавлен успешно")
+            finally:
+                print("Обработка добавления товара завершена")
         else:
             raise TypeError
 
