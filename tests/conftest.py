@@ -1,7 +1,6 @@
 import pytest
 
 from src.category import Category
-from src.iteration_class import ProductIteration
 from src.lawngrass import LawnGrass
 from src.product import Product
 from src.smartphone import Smartphone
@@ -105,6 +104,11 @@ def product2():              # type: ignore[no-untyped-def]
 
 
 @pytest.fixture
+def product3():              # type: ignore[no-untyped-def]
+    return Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+
+
+@pytest.fixture
 def smartphone():            # type: ignore[no-untyped-def]
     """Данные для теста Smartphone"""
     return Smartphone.new_product({
@@ -131,3 +135,18 @@ def lawngrass():              # type: ignore[no-untyped-def]
         "germination_period": "2 month",
         "color": "Зелёный"
     })
+
+
+@pytest.fixture
+def zero_product():         # type: ignore[no-untyped-def]
+    return  Product(
+        "Бракованный товар",
+        "Неверное количество",
+        1000.0,
+        0
+    )
+
+
+@pytest.fixture
+def category1(product1, product2, product3):          # type: ignore[no-untyped-def]
+    return Category("Смартфоны", "Категория смартфонов", [product1, product2, product3])

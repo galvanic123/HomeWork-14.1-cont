@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(PrintMixin, BaseProduct):
     """Класс Продукт - описание продуктов"""
 
     name: str
@@ -6,18 +10,25 @@ class Product:
     price: float
     quantity: int
 
-    def __init__(self, name, description, price, quantity):             # type: ignore[no-untyped-def]
+    def __init__(self, name, description, price, quantity):              # type: ignore[no-untyped-def]
         """Передаём одноимённые переменные для дальнейшего использования"""
+
         self.name = name
         self.description = description
         self.__price = price
-        self.quantity = quantity
+        if quantity == 0:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
+        else:
+            self.quantity = quantity
+        super().__init__()
 
     def __str__(self):                       # type: ignore[no-untyped-def]
         return f'{self.name}, {self.__price} руб., Остаток: {self.quantity} шт. '
 
     def __add__(self, other):              # type: ignore[no-untyped-def]
-        if type(self) == type(other):
+        # if type(self) == type(other):
+        #     return self.__price * self.quantity + other.__price * other.quantity
+        if isinstance(other, self.__class__):
             return self.__price * self.quantity + other.__price * other.quantity
         else:
             raise TypeError

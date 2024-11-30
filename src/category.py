@@ -1,3 +1,4 @@
+from src.exceptions import ZeroProduct
 from src.product import Product
 
 
@@ -19,7 +20,15 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
 
-    def __str__(self):                 # type: ignore[no-untyped-def]
+    def middle_price(self):        # type: ignore[no-untyped-def]
+        # if not self.__products:
+        #     return 0
+        try:
+            return round(sum(product.price for product in self.__products) / len(self.__products), 2)
+        except ZeroDivisionError:
+            return 0
+
+    def __str__(self):            # type: ignore[no-untyped-def]
         """Метод, отображающий строку в заданном формате"""
         total_quantity = 0
         for product in self.__products:
@@ -33,8 +42,17 @@ class Category:
     def add_product(self, product: dict):                # type: ignore[no-untyped-def]
         """Метод добавления нового продукта в список"""
         if isinstance(product, Product):
-            self.__products.append(product)
-            Category.product_count += 1
+            try:
+                if product.quantity == 0:
+                    raise ZeroProduct("Нельзя добавлять товар с нулевым количеством")
+            except ZeroProduct as e:
+                print(str(e))
+            else:
+                self.__products.append(product)
+                Category.product_count += 1
+                print("Товар добавлен успешно")
+            finally:
+                print("Обработка добавления товара завершена")
         else:
             raise TypeError
 

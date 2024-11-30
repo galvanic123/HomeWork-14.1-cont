@@ -2,7 +2,7 @@ from src.product import Product
 
 
 class LawnGrass(Product):
-    def __init__(self, name, description, price, quantity,
+    def __init__(self, name, description, price, quantity,               # type: ignore[no-untyped-def]
                  country, germination_period, color):      # type: ignore[no-untyped-def]
         super().__init__(name, description, price, quantity)
         self.country = country
