@@ -138,13 +138,14 @@ def lawngrass():              # type: ignore[no-untyped-def]
 
 
 @pytest.fixture
-def zero_product():
+def zero_product():         # type: ignore[no-untyped-def]
     return  Product(
         "Бракованный товар",
         "Неверное количество",
         1000.0,
         0
     )
+
 
 @pytest.fixture
 def category1(product1, product2, product3):          # type: ignore[no-untyped-def]
