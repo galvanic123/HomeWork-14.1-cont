@@ -12,6 +12,8 @@ def test_add_product(product1, product2):          # type: ignore[no-untyped-def
 
 
 def test_add_zero_product() -> None:
-    with pytest.raises(ValueError) as ex:
+    with pytest.raises(ValueError) as e:
         quantity_zero = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 0)
-        assert quantity_zero == f"{ex}: Товар с нулевым количеством не может быть добавлен"
+        assert quantity_zero == f"{e}: Товар с нулевым количеством не может быть добавлен"
+
+

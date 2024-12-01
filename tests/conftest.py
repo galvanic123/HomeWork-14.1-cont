@@ -140,9 +140,10 @@ def lawngrass():              # type: ignore[no-untyped-def]
 @pytest.fixture
 def zero_product():         # type: ignore[no-untyped-def]
     return  Product(
-        "Бракованный товар",
-        "Неверное количество",
-        1000.0,
+        "Iphone 15",
+        "512GB, "
+        "Gray space",
+        210000.0,
         0
     )
 
@@ -150,3 +151,13 @@ def zero_product():         # type: ignore[no-untyped-def]
 @pytest.fixture
 def category1(product1, product2, product3):          # type: ignore[no-untyped-def]
     return Category("Смартфоны", "Категория смартфонов", [product1, product2, product3])
+
+
+@pytest.fixture
+def category2(product2, product3):          # type: ignore[no-untyped-def]
+    return Category("Смартфоны", "Категория смартфонов", [product2, product3])
+
+
+@pytest.fixture
+def category3(product3):          # type: ignore[no-untyped-def]
+    return Category("Смартфоны", "Категория смартфонов", [product3])

@@ -21,8 +21,8 @@ class Category:
         Category.product_count += len(products) if products else 0
 
     def middle_price(self):        # type: ignore[no-untyped-def]
-        # if not self.__products:
-        #     return 0
+        if not self.__products:
+            return 0
         try:
             return round(sum(product.price for product in self.__products) / len(self.__products), 2)
         except ZeroDivisionError:
